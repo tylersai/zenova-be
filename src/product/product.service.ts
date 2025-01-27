@@ -32,6 +32,9 @@ export class ProductService {
   }
 
   async create(productPayload: CreateProductPayload): Promise<Product> {
+    if (!productPayload.originalPrice) {
+      productPayload.originalPrice = productPayload.price;
+    }
     const saved = await new this.productModel(productPayload).save();
     return saved;
   }

@@ -27,6 +27,10 @@ class CreateProductPayload {
 
   @IsNumberString()
   @IsOptional()
+  originalPrice?: number;
+
+  @IsNumberString()
+  @IsOptional()
   stock?: number;
 }
 
