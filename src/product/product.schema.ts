@@ -35,6 +35,13 @@ export class Product extends Document {
   price: number;
 
   @Prop({
+    type: Number,
+    required: true,
+    min: 0,
+  })
+  originalPrice: number;
+
+  @Prop({
     type: String,
     required: false,
   })
@@ -48,10 +55,23 @@ export class Product extends Document {
 
   @Prop({
     type: Number,
+    default: 0,
+    min: 0,
+  })
+  rating: number;
+
+  @Prop({
+    type: Number,
     default: 1,
     min: 0,
   })
   stock: number;
+
+  @Prop({
+    type: Boolean,
+    default: true,
+  })
+  isNewlyAdded: boolean;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
