@@ -23,6 +23,12 @@ export class ProductService {
     return this.productModel.find(query).exec();
   }
 
+  async findByCategory(category: string) {
+    return this.productModel
+      .find({ category: { $regex: `^${category}$`, $options: 'i' } })
+      .exec();
+  }
+
   async findById(id: string): Promise<Product> {
     if (isValidObjectId(id)) {
       const product = this.productModel.findById(id).exec();

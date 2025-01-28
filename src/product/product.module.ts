@@ -6,6 +6,7 @@ import { Product, ProductSchema } from './product.schema';
 import { AuthService } from 'src/auth/auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
+import { CategoryController } from './category.controller';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { UsersService } from 'src/users/users.service';
       },
     ]),
   ],
-  controllers: [ProductController],
+  controllers: [ProductController, CategoryController],
   providers: [ProductService, AuthService, JwtService, UsersService],
 })
 export class ProductModule {}
