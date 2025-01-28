@@ -29,6 +29,13 @@ export class ProductService {
       .exec();
   }
 
+  async search(q: string) {
+    return this.productModel
+      .find({ $text: { $search: q } }, { score: { $meta: 'textScore' } })
+      .sort({ score: { $meta: 'textScore' } })
+      .exec();
+  }
+
   async findById(id: string): Promise<Product> {
     if (isValidObjectId(id)) {
       const product = this.productModel.findById(id).exec();

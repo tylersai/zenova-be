@@ -74,4 +74,8 @@ export class Product extends Document {
   isNewlyAdded: boolean;
 }
 
-export const ProductSchema = SchemaFactory.createForClass(Product);
+export const ProductSchema = SchemaFactory.createForClass(Product).index({
+  name: 'text',
+  description: 'text',
+  category: 'text',
+});

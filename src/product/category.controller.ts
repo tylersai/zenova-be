@@ -5,8 +5,8 @@ import { ProductService } from './product.service';
 export class CategoryController {
   constructor(private readonly productService: ProductService) {}
 
-  @Get(':category')
-  getById(@Param('category') category: string) {
+  @Get(':category/product')
+  getProductsByCategory(@Param('category') category: string) {
     return this.productService.findByCategory(category);
   }
 }

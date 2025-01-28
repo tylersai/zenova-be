@@ -23,6 +23,11 @@ export class ProductController {
     return this.productService.findAll(filters);
   }
 
+  @Get('search')
+  search(@Query('q') q: string) {
+    return this.productService.search(q);
+  }
+
   @Get(':id')
   getById(@Param('id') id: string) {
     return this.productService.findById(id);
