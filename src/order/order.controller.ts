@@ -1,6 +1,16 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { OrderService } from './order.service';
 import { CreateOrderPayload } from './dto/create-order';
+import { AuthGuard } from 'src/auth/auth.guard';
+import { Request } from 'express';
 
 @Controller('order')
 export class OrderController {
@@ -9,6 +19,12 @@ export class OrderController {
   @Get()
   async getAll() {
     return this.orderService.getAll();
+  }
+
+  @UseGuards(AuthGuard)
+  @Get('my-orders')
+  async getMyOrders(@Req() request: Request) {
+    return this.orderService.getByEmail(request['user'].email);
   }
 
   @Get(':email')
