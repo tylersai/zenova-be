@@ -95,4 +95,52 @@ export const products = [
     isNewlyAdded: false,
     stock: 0,
   },
+  {
+    name: 'Leather Messenger Bag',
+    description:
+      'Premium leather messenger bag with multiple compartments. Ideal for professionals and students alike. Fits laptops up to 15 inches.',
+    price: 150.0,
+    originalPrice: 180.0,
+    category: 'Accessories',
+    rating: 4.5,
+    imageUrl: 'leather-messenger-bag.webp',
+    isNew: false,
+    stock: 0,
+  },
+  {
+    name: 'Ultra HD 4K Action Camera',
+    description:
+      'A durable and waterproof action camera with 4K recording, image stabilization, and wide-angle lens for capturing every adventure.',
+    price: 220.0,
+    originalPrice: 250.0,
+    category: 'Camera',
+    rating: 4.8,
+    imageUrl: 'ultra-hd-4k-action-camera.webp',
+    isNew: true,
+    stock: 0,
+  },
+  {
+    name: 'Ergonomic Mechanical Keyboard',
+    description:
+      'A high-performance mechanical keyboard with customizable RGB lighting, tactile switches, and ergonomic design for comfortable typing.',
+    price: 120.0,
+    originalPrice: 140.0,
+    category: 'Accessories',
+    rating: 4.7,
+    imageUrl: 'ergonomic-mechanical-keyboard.webp',
+    isNew: false,
+    stock: 0,
+  },
+  {
+    name: 'Fast Wireless Charger',
+    description:
+      'A sleek and efficient wireless charger compatible with various smartphones, providing fast charging and overcharge protection.',
+    price: 45.0,
+    originalPrice: 60.0,
+    category: 'Accessories',
+    rating: 4.6,
+    imageUrl: 'fast-wireless-charger.webp',
+    isNew: false,
+    stock: 0,
+  },
 ];
