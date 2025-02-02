@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Injectable,
   NotFoundException,
   UnauthorizedException,
@@ -35,6 +36,15 @@ export class AuthService {
   }
 
   async signup(payload: SignupPayload) {
+    const existingUser = await this.userService.getProfileByEmail(
+      payload.email,
+    );
+    if (existingUser) {
+      throw new BadRequestException(
+        `User with ${payload.email} already exists. Please try logging in.`,
+      );
+    }
+
     const user = await this.userService.createUser(payload);
     const access_token = await this.generateToken({
       email: user.email,
